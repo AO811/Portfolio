@@ -1,0 +1,62 @@
+/* Background for hero section */
+.home {
+  height: 100vh;
+  background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  text-align: center;
+}
+
+/* Container for hero content */
+.hero-container {
+  max-width: 800px;
+  padding: 20px;
+}
+
+/* Card styling */
+.hero-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hero-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0px 12px 35px rgba(0, 0, 0, 0.6);
+}
+
+.hero-card h1 {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+}
+
+.hero-card .highlight {
+  color: #ffcc00;
+}
+
+.hero-card p {
+  font-size: 1.2rem;
+  margin-bottom: 25px;
+}
+
+/* Button styling */
+.btn {
+  display: inline-block;
+  padding: 12px 24px;
+  background: #ffcc00;
+  color: #1a1a2e;
+  font-weight: bold;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.btn:hover {
+  background: #ffd633;
+  transform: scale(1.05);
+}
