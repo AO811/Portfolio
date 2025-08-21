@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useRef } from "react";
+import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Projects from "./pages/Projects";
@@ -6,43 +7,33 @@ import Contact from "./pages/Contact";
 import "./App.css";
 
 function App() {
+  // Create refs for each section
+  const homeRef = useRef(null);
+  const aboutRef = useRef(null);
+  const projectsRef = useRef(null);
+  const contactRef = useRef(null);
+
+  const sectionRefs = { homeRef, aboutRef, projectsRef, contactRef };
+
   return (
     <div className="App">
-      {/* Sticky Navbar */}
-      <nav className="navbar">
-        <h1 className="logo">MyPortfolio</h1>
-        <ul className="nav-links">
-          <li><a href="#home">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
+      {/* Navbar with sectionRefs */}
+      <Navbar refs={sectionRefs} />
 
-      {/* Hero Section */}
-      <section id="home" className="hero">
-        <div className="hero-content">
-          <h2>Hello, I'm <span className="highlight">Abhik</span></h2>
-          <p>
-            A passionate <strong>Web Developer</strong> who loves creating clean,
-            modern, and user-friendly websites.
-          </p>
-          <a href="#projects" className="btn">View My Work</a>
-        </div>
+      {/* Sections with refs */}
+      <section ref={homeRef}>
+        <Home refs={sectionRefs} />
       </section>
 
-      {/* About Section */}
-      <section id="about">
+      <section ref={aboutRef}>
         <About />
       </section>
 
-      {/* Projects Section */}
-      <section id="projects">
+      <section ref={projectsRef}>
         <Projects />
       </section>
 
-      {/* Contact Section */}
-      <section id="contact">
+      <section ref={contactRef}>
         <Contact />
       </section>
     </div>

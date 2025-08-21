@@ -1,28 +1,36 @@
 import React from "react";
 import "./Home.css";
+import heroBg from "../assets/hero-bg.jpg"; 
 
-const Home = () => {
+const Home = ({ refs }) => {
   return (
-    <section className="home">
+    <section className="home" style={{ backgroundImage: `url(${heroBg})` }}>
       <div className="hero">
         <div className="hero-card">
-          <img
-            src="https://via.placeholder.com/150"
-            alt="Profile"
-            className="hero-img"
-          />
-          <h1 className="hero-title">Hi, I'm Abhik Das</h1>
+          <h1 className="hero-title">
+            Hi, I'm <span className="highlight">Abhik Das</span>
+          </h1>
           <p className="hero-subtitle">
             A passionate developer who loves building clean, modern, and
             user-friendly web applications.
           </p>
           <div className="hero-buttons">
-            <a href="#projects" className="btn primary-btn">
+            <button
+              className="btn primary-btn"
+              onClick={() =>
+                refs.projectsRef.current.scrollIntoView({ behavior: "smooth" })
+              }
+            >
               View My Work
-            </a>
-            <a href="#contact" className="btn secondary-btn">
+            </button>
+            <button
+              className="btn secondary-btn"
+              onClick={() =>
+                refs.contactRef.current.scrollIntoView({ behavior: "smooth" })
+              }
+            >
               Contact Me
-            </a>
+            </button>
           </div>
         </div>
       </div>
