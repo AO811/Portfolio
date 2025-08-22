@@ -2,6 +2,12 @@ import React from "react";
 import "./About.css";
 
 export default function About() {
+    const scrollToContact = () => {
+    const contactSection = document.getElementById("contact");
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
   return (
     <section className="about" id="about">
       <div className="about-container">
@@ -38,31 +44,64 @@ export default function About() {
         {/* Skills Section */}
         <div className="about-skills">
           <h2>Skills</h2>
-          <ul>
-            <li>
-              <strong>Programming Languages:</strong> Java, Python, SQL
-            </li>
-            <li>
-              <strong>Developer Tools:</strong> GitHub, VS Code, Eclipse, Spyder,
-              MySQL Workbench, MongoDB, Arduino
-            </li>
-            <li>
-              <strong>Styling & Markup:</strong> HTML, CSS
-            </li>
-            <li>
-              <strong>Frameworks:</strong> Java Swing, Express.js, React.js,
-              Node.js, Bootstrap
-            </li>
-            <li>
-              <strong>Libraries:</strong> Numpy, Pandas, Matplotlib, Seaborn
-            </li>
-            <li>
-              <strong>Networking Tools:</strong> Cisco Packet Tracer, Wireshark
-            </li>
-            <li>
-              <strong>Non-Developer Tools:</strong> Canva, MS PowerPoint
-            </li>
-          </ul>
+
+          <div className="skill-category">
+            <h3>Languages</h3>
+            <div className="skill-list">
+              <span className="skill-pill">Java</span>
+              <span className="skill-pill">Python</span>
+              <span className="skill-pill">SQL</span>
+              <span className="skill-pill">HTML</span>
+              <span className="skill-pill">CSS</span>
+            </div>
+          </div>
+
+          <div className="skill-category">
+            <h3>Frameworks and Libraries</h3>
+            <div className="skill-list">
+              <span className="skill-pill">React.js</span>
+              <span className="skill-pill">Express.js</span>
+              <span className="skill-pill">Node.js</span>
+              <span className="skill-pill">Bootstrap</span>
+              <span className="skill-pill">Java Swing</span>
+              <span className="skill-pill">Numpy</span>
+              <span className="skill-pill">Pandas</span>
+              <span className="skill-pill">Matplotlib</span>
+              <span className="skill-pill">Seaborn</span>
+            </div>
+          </div>
+
+          <div className="skill-category">
+            <h3>Databases and Tools</h3>
+            <div className="skill-list">
+              <span className="skill-pill">MySQL</span>
+              <span className="skill-pill">MongoDB</span>
+              <span className="skill-pill">GitHub</span>
+              <span className="skill-pill">VSCode</span>
+              <span className="skill-pill">Arduino</span>
+            </div>
+          </div>
+
+          <div className="skill-category">
+            <h3>Networking and Others</h3>
+            <div className="skill-list">
+              <span className="skill-pill">Cisco Packet Tracer</span>
+              <span className="skill-pill">Wireshark</span>
+              <span className="skill-pill">Canva</span>
+              <span className="skill-pill">MS PowerPoint</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      {/* New Collab Section */}
+      <div className="about-collab">
+        <h3>Interested in Collaborating?</h3>
+        <p>
+          I’m always open to exciting projects and new opportunities.  
+          Let’s create something together!
+        </p>
+        <div className="arrow" onClick={scrollToContact}>
+          ↓
         </div>
       </div>
     </section>

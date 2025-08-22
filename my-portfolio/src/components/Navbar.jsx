@@ -39,7 +39,7 @@ function Navbar({ refs }) {
 
   return (
     <nav className="navbar">
-      <h1 className="logo">MyPortfolio</h1>
+      <h1 className="logo">A B H I K</h1>
 
       <div className={`nav-links ${open ? "open" : ""}`}>
         <button

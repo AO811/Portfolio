@@ -16,7 +16,7 @@
 }
 
 .about h2 {
-  font-size: 2rem;
+  font-size: 3rem;
   margin-bottom: 20px;
   color: #58a6ff;
 }
@@ -27,20 +27,44 @@
   margin-bottom: 15px;
 }
 
-.about-skills ul {
-  list-style: none;
-  padding: 0;
-}
-
-.about-skills li {
-  font-size: 1.1rem;
-  margin-bottom: 12px;
-  line-height: 1.5;
-}
-
 .highlight {
   color: #f39c12;
   font-weight: bold;
+}
+
+/* Skill Categories */
+.skill-category {
+  margin-bottom: 25px;
+}
+
+.skill-category h3 {
+  font-size: 1.2rem;
+  color: #f39c12;
+  margin-bottom: 10px;
+}
+
+/* Pill containers */
+.skill-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.skill-pill {
+  background: #161b22;
+  border: 3px solid #0df206;
+  padding: 6px 14px;
+  border-radius: 50px;
+  font-size: 0.95rem;
+  color: #e6edf3;
+  transition: all 0.3s ease;
+  cursor: default;
+}
+
+.skill-pill:hover {
+  background: #238636; /* green hover */
+  border-color: #238636;
+  color: #fff;
 }
 
 /* Responsive */
@@ -48,4 +72,35 @@
   .about-container {
     flex-direction: column;
   }
+}
+
+/*Collaborate */
+.about-collab {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.about-collab h3 {
+  font-size: 1.6rem;
+  margin-bottom: 10px;
+}
+
+.about-collab p {
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+}
+
+.arrow {
+  font-size: 2rem;
+  cursor: pointer;
+  animation: bounce 1.5s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(8px); }
+}
+
+.arrow:hover {
+  color: #58a6ff; /* Change color on hover */
 }
