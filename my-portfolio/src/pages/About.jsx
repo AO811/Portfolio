@@ -13,7 +13,7 @@ export default function About() {
       <div className="about-container">
         {/* Bio Section */}
         <div className="about-bio">
-          <h2>Who Am I?</h2>
+          <h2>Behind the Code</h2>
           <p>
             Hi, I’m <span className="highlight">Abhik Das</span>, a final-year
             B.Tech student with a strong interest in software development,

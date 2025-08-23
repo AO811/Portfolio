@@ -8,7 +8,7 @@ const Home = ({ refs }) => {
       <div className="hero">
         <div className="hero-card">
           <h1 className="hero-title">
-            Hi, I'm <span className="highlight">Abhik Das</span>
+            Hi, I'm <span className="highlight">Abhik</span>
           </h1>
           <p className="hero-subtitle">
             A passionate developer who loves building clean, modern, and
