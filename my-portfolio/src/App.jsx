@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Projects from "./pages/Projects";
 import Contact from "./pages/Contact";
+import Footer from "./components/Footer";
 import "./App.css";
 
 function App() {
@@ -16,26 +17,31 @@ function App() {
   const sectionRefs = { homeRef, aboutRef, projectsRef, contactRef };
 
   return (
-    <div className="App">
+    <div className="App flex flex-col min-h-screen">
       {/* Navbar with sectionRefs */}
       <Navbar refs={sectionRefs} />
 
       {/* Sections with refs */}
-      <section ref={homeRef}>
-        <Home refs={sectionRefs} />
-      </section>
+      <main className="flex-grow">
+        <section ref={homeRef}>
+          <Home refs={sectionRefs} />
+        </section>
 
-      <section ref={aboutRef}>
-        <About />
-      </section>
+        <section ref={aboutRef}>
+          <About />
+        </section>
 
-      <section ref={projectsRef}>
-        <Projects />
-      </section>
+        <section ref={projectsRef}>
+          <Projects />
+        </section>
 
-      <section ref={contactRef}>
-        <Contact />
-      </section>
+        <section ref={contactRef}>
+          <Contact />
+        </section>
+      </main>
+
+      {/* Footer always at bottom */}
+      <Footer />
     </div>
   );
 }
