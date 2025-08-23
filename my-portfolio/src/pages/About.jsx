@@ -2,7 +2,7 @@ import React from "react";
 import "./About.css";
 
 export default function About() {
-    const scrollToContact = () => {
+  const scrollToContact = () => {
     const contactSection = document.getElementById("contact");
     if (contactSection) {
       contactSection.scrollIntoView({ behavior: "smooth" });
@@ -95,10 +95,10 @@ export default function About() {
       </div>
       {/* New Collab Section */}
       <div className="about-collab">
-        <h3>Interested in Collaborating?</h3>
+        <h3>Interested in collaborating or just want to chat?</h3>
         <p>
-          I’m always open to exciting projects and new opportunities.  
-          Let’s create something together!
+          I’m always open to exciting projects, collaborations, or just a
+          friendly conversation.
         </p>
         <div className="arrow" onClick={scrollToContact}>
           ↓
