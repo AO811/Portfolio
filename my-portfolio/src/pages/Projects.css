@@ -220,3 +220,36 @@
   color: #bbb;
 }
 
+/* Button Group */
+.button-group {
+  display: flex;
+  gap: 1rem;
+  margin-top: 20px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.7rem 1.3rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+/*  background: linear-gradient(135deg, #2563eb, #9333ea);*/
+  border-radius: 9999px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 12px #00ff6a;
+}
+
+.btn i {
+  font-size: 1.2rem;
+}
+
+.btn:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 0 18px #00ff6a;
+  color: #fff;
+  background-color: #00ff6a;
+}
+

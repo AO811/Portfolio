@@ -102,12 +102,13 @@ function Projects() {
             </div>
           </div>
 
-          <div className="project-links">
-            <a href={project.live} target="_blank" rel="noreferrer">
-              🔗 Live Demo
+          {/* Buttons */}
+          <div className="button-group">
+            <a href={project.live} target="_blank" rel="noreferrer" className="btn">
+              <i className="fas fa-play-circle"></i> Live Demo
             </a>
-            <a href={project.github} target="_blank" rel="noreferrer">
-              💻 GitHub
+            <a href={project.github} target="_blank" rel="noreferrer" className="btn">
+              <i className="fab fa-github"></i> GitHub
             </a>
           </div>
         </div>
