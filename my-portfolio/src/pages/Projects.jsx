@@ -2,11 +2,6 @@ import "./Projects.css";
 import { useState, useEffect } from "react";
 
 import WiresharkImg1 from "../assets/Wireshark1.png";
-import WiresharkImg2 from "../assets/Wireshark2.png";
-import WiresharkImg3 from "../assets/Wireshark3.png";
-import WiresharkImg4 from "../assets/Wireshark4.png";
-import WiresharkImg5 from "../assets/Wireshark5.png";
-
 import EMSImg from "../assets/EMS.png";
 import SpotifyImg from "../assets/Spotify.png";
 import HotelImg from "../assets/Hotel.png";
@@ -15,69 +10,111 @@ function Projects() {
   const projects = [
     {
       title: "Wireshark Network Tracking with Google Maps",
-      desc: "Network threat monitoring tool using Python, Tkinter, Folium, and AbuseIPDB+VirusTotal APIs",
-      img: [WiresharkImg1, WiresharkImg2, WiresharkImg3, WiresharkImg4, WiresharkImg5]
+      desc: "Network threat monitoring tool using Python, Tkinter, Folium, and AbuseIPDB+VirusTotal APIs.",
+      client: "Personal Project",
+      time: "2 Weeks",
+      tech: "Python, Tkinter, Folium, AbuseIPDB API, VirusTotal API",
+      img: WiresharkImg1,
+      live: "#",
+      github: "#",
     },
     {
       title: "Employee Management System",
-      desc: "Developed using Java Swing and MySQL",
-      img: [EMSImg]
+      desc: "Employee management system built using Java Swing and MySQL.",
+      client: "University Project",
+      time: "1 Month",
+      tech: "Java Swing, MySQL",
+      img: EMSImg,
+      live: "#",
+      github: "#",
     },
     {
       title: "Spotify EDA",
-      desc: "EDA using Pandas, NumPy, Matplotlib, Seaborn",
-      img: [SpotifyImg]
+      desc: "Exploratory Data Analysis on Spotify dataset using Pandas, NumPy, Matplotlib, Seaborn.",
+      client: "Research Project",
+      time: "1 Week",
+      tech: "Python, Pandas, NumPy, Matplotlib, Seaborn",
+      img: SpotifyImg,
+      live: "#",
+      github: "#",
     },
     {
       title: "MERN Hotel Booking System",
-      desc: "Built with MERN Stack + Bootstrap",
-      img: [HotelImg]
+      desc: "A hotel booking system with authentication and booking features.",
+      client: "Self Project",
+      time: "3 Weeks",
+      tech: "MongoDB, Express, React, Node.js, Bootstrap",
+      img: HotelImg,
+      live: "#",
+      github: "#",
     },
   ];
 
-  const [hovered, setHovered] = useState(null);
-  const [indexes, setIndexes] = useState(projects.map(() => 0));
+  const [currentProject, setCurrentProject] = useState(0);
 
-  // Run slideshow only when card is hovered
+  const nextProject = () => {
+    setCurrentProject((prev) => (prev + 1) % projects.length);
+  };
+
+  const prevProject = () => {
+    setCurrentProject((prev) => (prev - 1 + projects.length) % projects.length);
+  };
+
+  // 🔥 Auto-slide effect
   useEffect(() => {
-    if (hovered === null) return;
     const interval = setInterval(() => {
-      setIndexes((prev) =>
-        prev.map((val, idx) =>
-          idx === hovered
-            ? (val + 1) % projects[idx].img.length
-            : val
-        )
-      );
-    }, 2000); // slower speed (2s)
-    return () => clearInterval(interval);
-  }, [hovered]);
+      setCurrentProject((prev) => (prev + 1) % projects.length);
+    }, 5000); // change every 5 seconds
+
+    return () => clearInterval(interval); // cleanup
+  }, [projects.length]);
+
+  const project = projects[currentProject];
 
   return (
     <section className="projects">
       <h2>Projects</h2>
-      <div className="card-grid">
-        {projects.map((project, index) => (
-          <div
-            className={`card ${hovered === index ? "hovered" : ""}`}
-            key={index}
-            onMouseEnter={() => setHovered(index)}
-            onMouseLeave={() => setHovered(null)}
-          >
-            <h3>{project.title}</h3>
-            <p>{project.desc}</p>
-            <figure>
-              <div className="slideshow-container">
-                <img
-                  src={project.img[indexes[index]]}
-                  alt={project.title}
-                  className="slide-image"
-                />
-              </div>
-              <figcaption>{project.caption}</figcaption>
-            </figure>
+
+      <div className="project-slide fade">
+        {/* Left: Image */}
+        <div className="project-image">
+          <img src={project.img} alt={project.title} />
+        </div>
+
+        {/* Right: Details */}
+        <div className="project-details">
+          <h3>{project.title}</h3>
+          <p className="desc">{project.desc}</p>
+
+          <h4>Project Info</h4>
+          <p>
+            <strong>Client:</strong> {project.client}
+          </p>
+          <p>
+            <strong>Completion Time:</strong> {project.time}
+          </p>
+          <p>
+            <strong>Technologies:</strong> {project.tech}
+          </p>
+
+          <div className="project-links">
+            <a href={project.live} target="_blank" rel="noreferrer">
+              🔗 Live Demo
+            </a>
+            <a href={project.github} target="_blank" rel="noreferrer">
+              💻 GitHub
+            </a>
           </div>
-        ))}
+        </div>
+      </div>
+
+      {/* Navigation */}
+      <div className="project-nav">
+        <button onClick={prevProject}>❮</button>
+        <span>
+          {currentProject + 1} / {projects.length}
+        </span>
+        <button onClick={nextProject}>❯</button>
       </div>
     </section>
   );
