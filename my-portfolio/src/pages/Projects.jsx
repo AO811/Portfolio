@@ -16,7 +16,7 @@ function Projects() {
       tech: "Python, Tkinter, Folium, AbuseIPDB API, VirusTotal API",
       img: WiresharkImg1,
       live: "#",
-      github: "#",
+      github: "https://github.com/AO811/Wireshark-Network-Tracking-With-Google-Maps",
     },
     {
       title: "Employee Management System",
@@ -26,7 +26,7 @@ function Projects() {
       tech: "Java Swing, MySQL",
       img: EMSImg,
       live: "#",
-      github: "#",
+      github: "https://github.com/AO811/Employee-Management-System",
     },
     {
       title: "Spotify EDA",
@@ -36,7 +36,7 @@ function Projects() {
       tech: "Python, Pandas, NumPy, Matplotlib, Seaborn",
       img: SpotifyImg,
       live: "#",
-      github: "#",
+      github: "https://github.com/AO811/SpotifyEDA",
     },
     {
       title: "MERN Hotel Booking System",
@@ -46,7 +46,7 @@ function Projects() {
       tech: "MongoDB, Express, React, Node.js, Bootstrap",
       img: HotelImg,
       live: "#",
-      github: "#",
+      github: "https://github.com/AO811/MERN-Hotel-Booking-System",
     },
   ];
 
@@ -104,9 +104,6 @@ function Projects() {
 
           {/* Buttons */}
           <div className="button-group">
-            <a href={project.live} target="_blank" rel="noreferrer" className="btn">
-              <i className="fas fa-play-circle"></i> Live Demo
-            </a>
             <a href={project.github} target="_blank" rel="noreferrer" className="btn">
               <i className="fab fa-github"></i> GitHub
             </a>
