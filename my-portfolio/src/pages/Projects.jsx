@@ -12,7 +12,7 @@ function Projects() {
       title: "Wireshark Network Tracking with Google Maps",
       desc: "Network threat monitoring tool using Python, Tkinter, Folium, and AbuseIPDB+VirusTotal APIs.",
       client: "Personal Project",
-      time: "2 Weeks",
+      time: "1 Week",
       tech: "Python, Tkinter, Folium, AbuseIPDB API, VirusTotal API",
       img: WiresharkImg1,
       live: "#",
@@ -22,7 +22,7 @@ function Projects() {
       title: "Employee Management System",
       desc: "Employee management system built using Java Swing and MySQL.",
       client: "University Project",
-      time: "1 Month",
+      time: "4 Weeks",
       tech: "Java Swing, MySQL",
       img: EMSImg,
       live: "#",
@@ -31,7 +31,7 @@ function Projects() {
     {
       title: "Spotify EDA",
       desc: "Exploratory Data Analysis on Spotify dataset using Pandas, NumPy, Matplotlib, Seaborn.",
-      client: "Research Project",
+      client: "Personal Project",
       time: "1 Week",
       tech: "Python, Pandas, NumPy, Matplotlib, Seaborn",
       img: SpotifyImg,
@@ -41,8 +41,8 @@ function Projects() {
     {
       title: "MERN Hotel Booking System",
       desc: "A hotel booking system with authentication and booking features.",
-      client: "Self Project",
-      time: "3 Weeks",
+      client: "Personal Project",
+      time: "2 Weeks",
       tech: "MongoDB, Express, React, Node.js, Bootstrap",
       img: HotelImg,
       live: "#",
@@ -52,6 +52,15 @@ function Projects() {
 
   const [currentProject, setCurrentProject] = useState(0);
 
+  // 🔥 Auto-slide effect
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentProject((prev) => (prev + 1) % projects.length);
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [projects.length]);
+
   const nextProject = () => {
     setCurrentProject((prev) => (prev + 1) % projects.length);
   };
@@ -59,15 +68,6 @@ function Projects() {
   const prevProject = () => {
     setCurrentProject((prev) => (prev - 1 + projects.length) % projects.length);
   };
-
-  // 🔥 Auto-slide effect
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentProject((prev) => (prev + 1) % projects.length);
-    }, 5000); // change every 5 seconds
-
-    return () => clearInterval(interval); // cleanup
-  }, [projects.length]);
 
   const project = projects[currentProject];
 
@@ -87,15 +87,20 @@ function Projects() {
           <p className="desc">{project.desc}</p>
 
           <h4>Project Info</h4>
-          <p>
-            <strong>Client:</strong> {project.client}
-          </p>
-          <p>
-            <strong>Completion Time:</strong> {project.time}
-          </p>
-          <p>
-            <strong>Technologies:</strong> {project.tech}
-          </p>
+          <div className="project-info">
+            <div className="project-info-row">
+              <strong>Client</strong>
+              <span>{project.client}</span>
+            </div>
+            <div className="project-info-row">
+              <strong>Completion Time</strong>
+              <span>{project.time}</span>
+            </div>
+            <div className="project-info-row">
+              <strong>Technologies</strong>
+              <span>{project.tech}</span>
+            </div>
+          </div>
 
           <div className="project-links">
             <a href={project.live} target="_blank" rel="noreferrer">
@@ -108,13 +113,17 @@ function Projects() {
         </div>
       </div>
 
-      {/* Navigation */}
-      <div className="project-nav">
-        <button onClick={prevProject}>❮</button>
-        <span>
-          {currentProject + 1} / {projects.length}
-        </span>
-        <button onClick={nextProject}>❯</button>
+      {/* Glowing Arrow Navigation */}
+      <div className="container">
+        <div className="pane">
+          <label className="label" onClick={prevProject}>
+            <span>❮</span>
+          </label>
+          <label className="label" onClick={nextProject}>
+            <span>❯</span>
+          </label>
+          <span className="selection"></span>
+        </div>
       </div>
     </section>
   );
