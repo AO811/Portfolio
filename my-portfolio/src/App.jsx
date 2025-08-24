@@ -1,14 +1,24 @@
-import React, { useRef } from "react";
+// App.jsx
+import React, { useRef, useState, useEffect } from "react";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Projects from "./pages/Projects";
 import Contact from "./pages/Contact";
 import Footer from "./components/Footer";
+import Loading from "./components/Loading"; // 👈 import loading screen
 import "./App.css";
 
 function App() {
-  // Create refs for each section
+  const [isLoading, setIsLoading] = useState(true);
+
+  // Simulate loading delay
+  useEffect(() => {
+    const timer = setTimeout(() => setIsLoading(false), 4000); // 4s delay
+    return () => clearTimeout(timer);
+  }, []);
+
+  // Refs for sections
   const homeRef = useRef(null);
   const aboutRef = useRef(null);
   const projectsRef = useRef(null);
@@ -16,13 +26,15 @@ function App() {
 
   const sectionRefs = { homeRef, aboutRef, projectsRef, contactRef };
 
+  if (isLoading) {
+    return <Loading />; // 👈 show loading screen
+  }
+
   return (
-    <div className="App flex flex-col min-h-screen">
-      {/* Navbar with sectionRefs */}
+    <div className="App">
       <Navbar refs={sectionRefs} />
 
-      {/* Sections with refs */}
-      <main className="flex-grow">
+      <main className="main-content">
         <section ref={homeRef}>
           <Home refs={sectionRefs} />
         </section>
@@ -40,7 +52,6 @@ function App() {
         </section>
       </main>
 
-      {/* Footer always at bottom */}
       <Footer />
     </div>
   );
