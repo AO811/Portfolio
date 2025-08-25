@@ -1,37 +1,47 @@
 import React from "react";
 import "./Home.css";
-import heroBg from "../assets/hero-bg.jpg"; 
+import profilePic from "../assets/Profile.png"; // replace with your actual profile image path
+import { TypeAnimation } from "react-type-animation";
 
-const Home = ({ refs }) => {
+const Home = () => {
   return (
-    <section className="home" style={{ backgroundImage: `url(${heroBg})` }}>
-      <div className="hero">
-        <div className="hero-card">
-          <h1 className="hero-title">
-            Hi, I'm <span className="highlight">Abhik</span>
-          </h1>
-          <p className="hero-subtitle">
-            A passionate developer who loves building clean, modern, and
-            user-friendly web applications.
-          </p>
-          <div className="hero-buttons">
-            <button
-              className="btn primary-btn"
-              onClick={() =>
-                refs.projectsRef.current.scrollIntoView({ behavior: "smooth" })
-              }
-            >
-              View My Work
-            </button>
-            <button
-              className="btn secondary-btn"
-              onClick={() =>
-                refs.contactRef.current.scrollIntoView({ behavior: "smooth" })
-              }
-            >
-              Contact Me
-            </button>
-          </div>
+    <section className="home">
+      <div className="home-left">
+        <p className="greeting">Hey there! I am</p>
+        <h1 className="intro">
+          <span className="highlight">Abhik</span>
+        </h1>
+
+        {/* Typing animation tagline */}
+        <h2>
+        <TypeAnimation
+          sequence={[
+            "Software developer",
+            3000,
+            "Problem solver",
+            3000,
+            "Tech enthusiast",
+            3000,
+            "Always learning",
+            3000,
+          ]}
+          wrapper="p"
+          cursor={true}
+          repeat={Infinity}
+          className="tagline"
+        />
+        </h2>
+
+        <div className="cta-buttons">
+          <a href="#projects" className="btn primary">View Projects</a>
+          <a href="#contact" className="btn primary">Contact Me</a>
+          <a href="https://ao811.github.io/Abhik_Das_Resume/" className="btn primary">My Resume</a>
+        </div>
+      </div>
+
+      <div className="home-right">
+        <div className="profile-container">
+          <img src={profilePic} alt="Abhik Profile" className="profile-pic" />
         </div>
       </div>
     </section>
