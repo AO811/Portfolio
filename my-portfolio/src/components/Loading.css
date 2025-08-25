@@ -31,7 +31,7 @@
 
 /* Loader styles from your snippet */
 .loader {
-  color: rgb(124, 124, 124);
+  color: #00ff6a;
   font-family: "Poppins", sans-serif;
   font-weight: 500;
   font-size: 25px;
@@ -64,7 +64,7 @@
   display: block;
   height: 100%;
   padding-left: 6px;
-  color: #956afa;
+  color: #58a6ff;
   animation: spin_4991 5s infinite; /* slower: 5 seconds instead of 4 */
 }
 
