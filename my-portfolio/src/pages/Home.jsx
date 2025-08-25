@@ -14,28 +14,39 @@ const Home = () => {
 
         {/* Typing animation tagline */}
         <h2>
-        <TypeAnimation
-          sequence={[
-            "Software developer",
-            3000,
-            "Problem solver",
-            3000,
-            "Tech enthusiast",
-            3000,
-            "Always learning",
-            3000,
-          ]}
-          wrapper="p"
-          cursor={true}
-          repeat={Infinity}
-          className="tagline"
-        />
+          <TypeAnimation
+            sequence={[
+              "Full-Stack developer",
+              3000,
+              "Problem solver",
+              3000,
+              "Tech enthusiast",
+              3000,
+              "Lifelong learner",
+              3000,
+            ]}
+            wrapper="p"
+            cursor={true}
+            repeat={Infinity}
+            className="tagline"
+          />
         </h2>
 
         <div className="cta-buttons">
-          <a href="#projects" className="btn primary">View Projects</a>
-          <a href="#contact" className="btn primary">Contact Me</a>
-          <a href="https://ao811.github.io/Abhik_Das_Resume/" className="btn primary">My Resume</a>
+          <a href="#projects" className="btn primary">
+            View Projects
+          </a>
+          <a href="#contact" className="btn primary">
+            Contact Me
+          </a>
+          <a
+            href="https://ao811.github.io/Abhik_Das_Resume/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn primary"
+          >
+            My Resume
+          </a>
         </div>
       </div>
 
