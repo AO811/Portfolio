@@ -9,7 +9,7 @@
 .projects h2 {
   font-size: 2.5rem;
   margin-bottom: 40px;
-  color: #7dd3fc;
+  color: #58a6ff;
 }
 
 /* Slide Wrapper */
@@ -53,7 +53,7 @@
 
 .project-details h3 {
   font-size: 1.8rem;
-  color: #4ade80;
+  color: #f39c12;
   margin-bottom: 10px;
 }
 
@@ -166,7 +166,7 @@
   left: 0;
   top: 0;
   background-color: #00ff6a;
-  box-shadow: 0 0 15px #00ff6a;
+  /* box-shadow: 0 0 15px #00ff6a; */
   transition: transform 0.3s ease;
   border-radius: 3px;
 }
@@ -183,7 +183,7 @@
 
 /* Project Info Section */
 .project-details h4 {
-  color: #f472b6;
+  color: #00ff6a;
   margin-bottom: 15px;
   font-size: 1.4rem;
   font-weight: 600;
@@ -234,12 +234,13 @@
   padding: 0.7rem 1.3rem;
   font-size: 1rem;
   font-weight: 600;
-  color: #fff;
+  border: 2px solid #00ff6a;
+  background: #161b22;
+  color: #00ff6a;
 /*  background: linear-gradient(135deg, #2563eb, #9333ea);*/
   border-radius: 9999px;
   text-decoration: none;
   transition: all 0.3s ease;
-  box-shadow: 0 0 12px #00ff6a;
 }
 
 .btn i {
@@ -248,8 +249,8 @@
 
 .btn:hover {
   transform: translateY(-3px) scale(1.05);
-  box-shadow: 0 0 18px #00ff6a;
-  color: #fff;
-  background-color: #00ff6a;
+  background: #0d1117;
+  color: #00ff6a; /* dark contrast */
+  box-shadow: 0 0 8px #00ff6a;
 }
 

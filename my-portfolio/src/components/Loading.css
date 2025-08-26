@@ -26,7 +26,7 @@
   align-items: center;
   height: 100vh;
   width: 100%;
-  background: #0a0a0a; /* matches portfolio bg */
+  background: #0d1117; /* consistent with portfolio theme */
 }
 
 /* Loader styles from your snippet */
@@ -40,6 +40,8 @@
   padding: 10px 10px;
   display: flex;
   border-radius: 8px;
+   text-shadow: 0 0 6px rgba(0, 255, 106, 0.8),
+               0 0 12px rgba(0, 255, 106, 0.5);
 }
 
 .words {
