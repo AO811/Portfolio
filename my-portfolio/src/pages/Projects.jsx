@@ -1,5 +1,5 @@
 import "./Projects.css";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 import WiresharkImg1 from "../assets/Wireshark1.png";
 import EMSImg from "../assets/EMS.png";
@@ -15,7 +15,6 @@ function Projects() {
       time: "1 Week",
       tech: "Python, Tkinter, Folium, AbuseIPDB API, VirusTotal API",
       img: WiresharkImg1,
-      live: "#",
       github: "https://github.com/AO811/Wireshark-Network-Tracking-With-Google-Maps",
     },
     {
@@ -25,7 +24,6 @@ function Projects() {
       time: "4 Weeks",
       tech: "Java Swing, MySQL",
       img: EMSImg,
-      live: "#",
       github: "https://github.com/AO811/Employee-Management-System",
     },
     {
@@ -35,7 +33,6 @@ function Projects() {
       time: "1 Week",
       tech: "Python, Pandas, NumPy, Matplotlib, Seaborn",
       img: SpotifyImg,
-      live: "#",
       github: "https://github.com/AO811/SpotifyEDA",
     },
     {
@@ -45,73 +42,107 @@ function Projects() {
       time: "2 Weeks",
       tech: "MongoDB, Express, React, Node.js, Bootstrap",
       img: HotelImg,
-      live: "#",
       github: "https://github.com/AO811/MERN-Hotel-Booking-System",
     },
   ];
 
-  const [currentProject, setCurrentProject] = useState(0);
+  // Add clones: last at start, first at end
+  const extendedProjects = [projects[projects.length - 1], ...projects, projects[0]];
 
-  // 🔥 Auto-slide effect
+  const [currentIndex, setCurrentIndex] = useState(1); // start from real first
+  const [isTransitioning, setIsTransitioning] = useState(true);
+  const trackRef = useRef(null);
+
+  // Auto-slide every 8s
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentProject((prev) => (prev + 1) % projects.length);
-    }, 5000);
-
+      nextProject();
+    }, 8000);
     return () => clearInterval(interval);
-  }, [projects.length]);
+  }, []);
 
   const nextProject = () => {
-    setCurrentProject((prev) => (prev + 1) % projects.length);
+    setCurrentIndex((prev) => prev + 1);
+    setIsTransitioning(true);
   };
 
   const prevProject = () => {
-    setCurrentProject((prev) => (prev - 1 + projects.length) % projects.length);
+    setCurrentIndex((prev) => prev - 1);
+    setIsTransitioning(true);
   };
 
-  const project = projects[currentProject];
+  // Handle transition end for infinite loop
+  const handleTransitionEnd = () => {
+    if (currentIndex === extendedProjects.length - 1) {
+      // Jump instantly to real first
+      setIsTransitioning(false);
+      setCurrentIndex(1);
+    } else if (currentIndex === 0) {
+      // Jump instantly to real last
+      setIsTransitioning(false);
+      setCurrentIndex(extendedProjects.length - 2);
+    }
+  };
+
+  useEffect(() => {
+    if (!isTransitioning) {
+      // force reflow to apply transition again
+      requestAnimationFrame(() => setIsTransitioning(true));
+    }
+  }, [isTransitioning]);
 
   return (
     <section className="projects">
       <h2>Projects</h2>
 
-      <div className="project-slide fade">
-        {/* Left: Image */}
-        <div className="project-image">
-          <img src={project.img} alt={project.title} />
-        </div>
+      <div className="project-slider">
+        <div
+          className="project-track"
+          ref={trackRef}
+          style={{
+            transform: `translateX(-${currentIndex * 100}%)`,
+            transition: isTransitioning ? "transform 0.6s ease-in-out" : "none",
+          }}
+          onTransitionEnd={handleTransitionEnd}
+        >
+          {extendedProjects.map((project, index) => (
+            <div className="project-slide" key={index}>
+              <div className="project-image">
+                <img src={project.img} alt={project.title} />
+              </div>
 
-        {/* Right: Details */}
-        <div className="project-details">
-          <h3>{project.title}</h3>
-          <p className="desc">{project.desc}</p>
+              <div className="project-details">
+                <h3>{project.title}</h3>
+                <p className="desc">{project.desc}</p>
 
-          <h4>Project Info</h4>
-          <div className="project-info">
-            <div className="project-info-row">
-              <strong>Client</strong>
-              <span>{project.client}</span>
-            </div>
-            <div className="project-info-row">
-              <strong>Completion Time</strong>
-              <span>{project.time}</span>
-            </div>
-            <div className="project-info-row">
-              <strong>Technologies</strong>
-              <span>{project.tech}</span>
-            </div>
-          </div>
+                <h4>Project Info</h4>
+                <div className="project-info">
+                  <div className="project-info-row">
+                    <strong>Client</strong>
+                    <span>{project.client}</span>
+                  </div>
+                  <div className="project-info-row">
+                    <strong>Completion Time</strong>
+                    <span>{project.time}</span>
+                  </div>
+                  <div className="project-info-row">
+                    <strong>Technologies</strong>
+                    <span>{project.tech}</span>
+                  </div>
+                </div>
 
-          {/* Buttons */}
-          <div className="button-group">
-            <a href={project.github} target="_blank" rel="noreferrer" className="btn">
-              <i className="fab fa-github"></i> GitHub
-            </a>
-          </div>
+                <div className="button-group">
+                  <a href={project.github} target="_blank" rel="noreferrer" className="btn">
+                    <i className="fab fa-github"></i> GitHub
+                  </a>
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
 
-      {/* Glowing Arrow Navigation */}
+      {/* Navigation */}
       <div className="container">
         <div className="pane">
           <label className="label" onClick={prevProject}>
