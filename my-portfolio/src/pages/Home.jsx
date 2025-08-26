@@ -16,13 +16,13 @@ const Home = () => {
         <h2>
           <TypeAnimation
             sequence={[
-              "Full-Stack developer",
+              "Software Engineer",
               3000,
-              "Problem solver",
+              "Full-Stack Developer",
               3000,
-              "Tech enthusiast",
+              "Tech Enthusiast",
               3000,
-              "Lifelong learner",
+              "Lifelong Learner",
               3000,
             ]}
             wrapper="p"
