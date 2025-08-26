@@ -27,6 +27,12 @@
   margin-bottom: 15px;
 }
 
+.about-collab h3 {
+    font-size: 1.6rem;
+    margin-bottom: 10px;
+    color: #58a6ff;
+}
+
 .highlight {
   color: #f39c12;
   font-weight: bold;
@@ -52,7 +58,7 @@
 
 .skill-pill {
   background: #161b22;
-  border: 3px solid #0df206;
+  border: 2px solid #00ff6a;
   padding: 6px 14px;
   border-radius: 50px;
   font-size: 0.95rem;
@@ -62,9 +68,10 @@
 }
 
 .skill-pill:hover {
-  background: #238636; /* green hover */
-  border-color: #238636;
-  color: #fff;
+  background: #0d1117;
+  border-color: #00ff6a;
+  color: #00ff6a;
+  box-shadow: 0 0 8px #00ff6a;
 }
 
 /* Responsive */
@@ -102,5 +109,5 @@
 }
 
 .arrow:hover {
-  color: #58a6ff; /* Change color on hover */
+  color: #00ff6a; /* neon hover */
 }
