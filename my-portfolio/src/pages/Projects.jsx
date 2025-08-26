@@ -46,50 +46,42 @@ function Projects() {
     },
   ];
 
-  // Add clones: last at start, first at end
+  // Add clones (for infinite loop)
   const extendedProjects = [projects[projects.length - 1], ...projects, projects[0]];
 
-  const [currentIndex, setCurrentIndex] = useState(1); // start from real first
-  const [isTransitioning, setIsTransitioning] = useState(true);
-  const trackRef = useRef(null);
+  const [currentIndex, setCurrentIndex] = useState(1);
+  const [transitionEnabled, setTransitionEnabled] = useState(true);
+  const autoSlideRef = useRef(null);
 
   // Auto-slide every 8s
   useEffect(() => {
-    const interval = setInterval(() => {
-      nextProject();
+    autoSlideRef.current = setInterval(() => {
+      setCurrentIndex((prev) => prev + 1);
     }, 8000);
-    return () => clearInterval(interval);
+
+    return () => clearInterval(autoSlideRef.current);
   }, []);
 
-  const nextProject = () => {
-    setCurrentIndex((prev) => prev + 1);
-    setIsTransitioning(true);
-  };
+  const nextProject = () => setCurrentIndex((prev) => prev + 1);
+  const prevProject = () => setCurrentIndex((prev) => prev - 1);
 
-  const prevProject = () => {
-    setCurrentIndex((prev) => prev - 1);
-    setIsTransitioning(true);
-  };
-
-  // Handle transition end for infinite loop
+  // Handle looping at edges
   const handleTransitionEnd = () => {
     if (currentIndex === extendedProjects.length - 1) {
-      // Jump instantly to real first
-      setIsTransitioning(false);
+      setTransitionEnabled(false);
       setCurrentIndex(1);
     } else if (currentIndex === 0) {
-      // Jump instantly to real last
-      setIsTransitioning(false);
+      setTransitionEnabled(false);
       setCurrentIndex(extendedProjects.length - 2);
     }
   };
 
+  // Re-enable transition after jump
   useEffect(() => {
-    if (!isTransitioning) {
-      // force reflow to apply transition again
-      requestAnimationFrame(() => setIsTransitioning(true));
+    if (!transitionEnabled) {
+      requestAnimationFrame(() => setTransitionEnabled(true));
     }
-  }, [isTransitioning]);
+  }, [transitionEnabled]);
 
   return (
     <section className="projects">
@@ -98,10 +90,9 @@ function Projects() {
       <div className="project-slider">
         <div
           className="project-track"
-          ref={trackRef}
           style={{
             transform: `translateX(-${currentIndex * 100}%)`,
-            transition: isTransitioning ? "transform 0.6s ease-in-out" : "none",
+            transition: transitionEnabled ? "transform 0.6s ease-in-out" : "none",
           }}
           onTransitionEnd={handleTransitionEnd}
         >
