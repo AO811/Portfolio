@@ -2,7 +2,7 @@ import React, { useRef, useState } from "react";
 import "./Contact.css";
 import { FaGithub, FaLinkedin, FaInstagram, FaTwitter } from "react-icons/fa";
 import { FiArrowUpRight } from "react-icons/fi";
-import emailjs from "emailjs-com";
+import emailjs from "@emailjs-com";
 
 export default function Contact() {
   const form = useRef();
