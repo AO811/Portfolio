@@ -28,9 +28,9 @@
 }
 
 .about-collab h3 {
-  font-size: 1.6rem;
-  margin-bottom: 10px;
-  color: #58a6ff;
+    font-size: 1.6rem;
+    margin-bottom: 10px;
+    color: #58a6ff;
 }
 
 .highlight {
@@ -74,6 +74,44 @@
   box-shadow: 0 0 8px #00ff6a;
 }
 
+/* Responsive */
+@media (max-width: 900px) {
+  .about-container {
+    flex-direction: column;
+  }
+}
+
+/*Collaborate */
+.about-collab {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.about-collab h3 {
+  font-size: 1.6rem;
+  margin-bottom: 10px;
+}
+
+.about-collab p {
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+}
+
+.arrow {
+  font-size: 2rem;
+  cursor: pointer;
+  animation: bounce 1.5s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(8px); }
+}
+
+.arrow:hover {
+  color: #00ff6a; /* neon hover */
+}
+
 /* --------------------- */
 /* 📱 Responsive Styles */
 /* --------------------- */
@@ -91,6 +129,9 @@
   .about-container {
     gap: 30px;
   }
+}
+.arrow:hover {
+  color: #00ff6a; /* neon hover */
 }
 
 /* Tablets & small laptops (<= 768px) */
@@ -154,4 +195,7 @@
   .arrow {
     font-size: 1.5rem;
   }
+  .arrow:hover {
+  color: #00ff6a; /* neon hover */
 }
+} 
