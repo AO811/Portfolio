@@ -36,6 +36,8 @@
 
 .project-image img {
   width: 450px;
+  max-width: 100%; /* responsive width */
+  height: auto;
   margin: 2px 2px;
   border-radius: 12px;
   box-shadow: 0 6px 25px rgba(0, 0, 0, 0.4);
@@ -66,8 +68,13 @@
 }
 
 .project-details h4 {
-  color: #f472b6;
-  margin-bottom: 10px;
+  color: #00ff6a;
+  margin-bottom: 15px;
+  font-size: 1.4rem;
+  font-weight: 600;
+  border-bottom: 1px solid #333;
+  padding-bottom: 5px;
+  letter-spacing: 0.5px;
 }
 
 .project-details p {
@@ -75,6 +82,7 @@
   font-size: 0.95rem;
 }
 
+/* Links */
 .project-links {
   margin-top: 20px;
 }
@@ -124,7 +132,6 @@
 }
 
 /* Custom Navigation Selector */
-/* Custom Navigation Selector */
 .container {
   transform-style: preserve-3d;
   perspective: 1000px;
@@ -137,7 +144,7 @@
   outline: 2px solid #00ff6a;
   box-shadow: 0 0 10px #00ff6a77, inset 0 0 10px #00ff6a77;
   height: 1cm;
-  width: 4.5cm; /* fits ❮ ❯ */
+  width: 4.5cm;
   border-radius: 5px;
   position: relative;
   overflow: hidden;
@@ -275,4 +282,84 @@
   gap: 40px;
   padding: 20px;
   box-sizing: border-box;
+}
+
+/* --------------------- */
+/* 📱 Responsive Styles */
+/* --------------------- */
+
+/* Tablets (<= 1024px) */
+@media (max-width: 1024px) {
+  .projects h2 {
+    font-size: 2.2rem;
+  }
+  .project-slide {
+    gap: 25px;
+    flex-wrap: wrap;
+  }
+  .project-details h3 {
+    font-size: 1.6rem;
+  }
+}
+
+/* Tablets & small laptops (<= 768px) */
+@media (max-width: 768px) {
+  .projects {
+    padding: 30px 15px;
+  }
+  .projects h2 {
+    font-size: 2rem;
+  }
+  .project-slide {
+    flex-direction: column;
+    text-align: center;
+  }
+  .project-details {
+    text-align: center;
+    max-width: 100%;
+  }
+  .project-info-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+  .btn {
+    font-size: 0.95rem;
+    padding: 0.6rem 1.1rem;
+  }
+  .label {
+    font-size: 18px;
+  }
+}
+
+/* Mobile phones (<= 480px) */
+@media (max-width: 480px) {
+  .projects h2 {
+    font-size: 1.7rem;
+  }
+  .project-details h3 {
+    font-size: 1.3rem;
+  }
+  .project-details h4 {
+    font-size: 1.1rem;
+  }
+  .project-details .desc {
+    font-size: 0.9rem;
+  }
+  .project-info-row strong,
+  .project-info-row span {
+    font-size: 0.9rem;
+  }
+  .project-nav button {
+    padding: 8px 12px;
+    font-size: 1.2rem;
+  }
+  .label {
+    font-size: 16px;
+    line-height: 0.9cm;
+  }
+  .pane {
+    width: 3.5cm;
+    height: 0.9cm;
+  }
 }

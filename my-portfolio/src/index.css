@@ -13,4 +13,41 @@ body {
   background-color: #ffffff;
   color: #333;
   line-height: 1.6;
+  font-size: 16px; /* Base size */
+  overflow-x: hidden; /* Prevent horizontal scroll on small screens */
+}
+
+/* Container utility (for sections) */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px; /* space on left/right */
+}
+
+/* --------------------- */
+/* 📱 Responsive Styles */
+/* --------------------- */
+
+/* Tablets (<= 768px) */
+@media (max-width: 768px) {
+  body {
+    font-size: 15px; /* Slightly smaller text */
+  }
+
+  .container {
+    padding: 0 15px;
+  }
+}
+
+/* Mobile phones (<= 480px) */
+@media (max-width: 480px) {
+  body {
+    font-size: 14px; /* Reduce text for small screens */
+    line-height: 1.5;
+  }
+
+  .container {
+    padding: 0 10px;
+  }
 }

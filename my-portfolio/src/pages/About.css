@@ -28,9 +28,9 @@
 }
 
 .about-collab h3 {
-    font-size: 1.6rem;
-    margin-bottom: 10px;
-    color: #58a6ff;
+  font-size: 1.6rem;
+  margin-bottom: 10px;
+  color: #58a6ff;
 }
 
 .highlight {
@@ -74,40 +74,84 @@
   box-shadow: 0 0 8px #00ff6a;
 }
 
-/* Responsive */
-@media (max-width: 900px) {
+/* --------------------- */
+/* 📱 Responsive Styles */
+/* --------------------- */
+
+/* Tablets (<= 1024px) */
+@media (max-width: 1024px) {
+  .about {
+    padding: 50px 8%;
+  }
+
+  .about h2 {
+    font-size: 2.5rem;
+  }
+
   .about-container {
-    flex-direction: column;
+    gap: 30px;
   }
 }
 
-/*Collaborate */
-.about-collab {
-  text-align: center;
-  margin-top: 40px;
+/* Tablets & small laptops (<= 768px) */
+@media (max-width: 768px) {
+  .about {
+    padding: 40px 6%;
+  }
+
+  .about-container {
+    flex-direction: column; /* stack bio & skills */
+    gap: 25px;
+  }
+
+  .about h2 {
+    font-size: 2.2rem;
+    text-align: center;
+  }
+
+  .about-bio p {
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  .about-skills {
+    text-align: center;
+  }
+
+  .skill-pill {
+    font-size: 0.9rem;
+    padding: 6px 12px;
+  }
 }
 
-.about-collab h3 {
-  font-size: 1.6rem;
-  margin-bottom: 10px;
-}
+/* Mobile phones (<= 480px) */
+@media (max-width: 480px) {
+  .about {
+    padding: 30px 5%;
+  }
 
-.about-collab p {
-  font-size: 1.1rem;
-  margin-bottom: 15px;
-}
+  .about h2 {
+    font-size: 1.8rem;
+  }
 
-.arrow {
-  font-size: 2rem;
-  cursor: pointer;
-  animation: bounce 1.5s infinite;
-}
+  .about-bio p {
+    font-size: 0.95rem;
+  }
 
-@keyframes bounce {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(8px); }
-}
+  .about-collab h3 {
+    font-size: 1.3rem;
+  }
 
-.arrow:hover {
-  color: #00ff6a; /* neon hover */
+  .about-collab p {
+    font-size: 1rem;
+  }
+
+  .skill-pill {
+    font-size: 0.85rem;
+    padding: 5px 10px;
+  }
+
+  .arrow {
+    font-size: 1.5rem;
+  }
 }

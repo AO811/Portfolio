@@ -1,6 +1,6 @@
 import React from "react";
 import "./Home.css";
-import profilePic from "../assets/Profile.png"; // replace with your actual profile image path
+import profilePic from "../assets/Profile.png";
 import { TypeAnimation } from "react-type-animation";
 
 const Home = () => {

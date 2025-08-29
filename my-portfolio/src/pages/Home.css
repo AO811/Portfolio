@@ -6,6 +6,7 @@
   padding: 0 10%;
   background: #0d1117; /* dark background */
   color: #f8fafc;
+  gap: 2rem;
 }
 
 .home-left {
@@ -27,21 +28,22 @@
 }
 
 .intro .highlight {
-  color: #f39c12; /* neon green highlight */
+  color: #f39c12;
   font-size: 8rem;
 }
 
 .tagline {
-  font-size: 1.6rem; /* balanced size */
+  font-size: 1.6rem;
   opacity: 0.9;
   max-width: 600px;
-  min-height: 30px; /* keeps space stable while typing */
+  min-height: 30px;
 }
 
 .cta-buttons {
   display: flex;
   gap: 1rem;
   margin-top: 1.5rem;
+  flex-wrap: wrap; /* allow wrapping on small screens */
 }
 
 .btn {
@@ -61,7 +63,7 @@
 
 .btn.primary:hover {
   background: #0d1117;
-  color: #00ff6a; /* dark contrast */
+  color: #00ff6a;
   box-shadow: 0 0 8px #00ff6a;
 }
 
@@ -75,7 +77,7 @@
 .profile-container {
   border-radius: 50%;
   padding: 5px;
-  background: linear-gradient(135deg, #00ff6a, #00e0ff); /* neon green → cyan */
+  background: linear-gradient(135deg, #00ff6a, #00e0ff);
 }
 
 .profile-pic {
@@ -89,4 +91,86 @@
 
 .profile-pic:hover {
   transform: scale(1.05);
+}
+
+/* --------------------- */
+/* 📱 Responsive Styles */
+/* --------------------- */
+
+/* Tablets (<= 1024px) */
+@media (max-width: 1024px) {
+  .intro {
+    font-size: 2.5rem;
+  }
+
+  .intro .highlight {
+    font-size: 5rem;
+  }
+
+  .profile-pic {
+    width: 300px;
+    height: 300px;
+  }
+}
+
+/* Tablets & small laptops (<= 768px) */
+@media (max-width: 768px) {
+  .home {
+    flex-direction: column; /* stack text & image */
+    text-align: center;
+    height: auto;
+    padding: 40px 5%;
+  }
+
+  .home-left {
+    align-items: center;
+  }
+
+  .tagline {
+    font-size: 1.4rem;
+    max-width: 90%;
+  }
+
+  .intro {
+    font-size: 2rem;
+  }
+
+  .intro .highlight {
+    font-size: 4rem;
+  }
+
+  .profile-pic {
+    width: 250px;
+    height: 250px;
+    margin-top: 20px;
+  }
+
+  .cta-buttons {
+    justify-content: center;
+  }
+}
+
+/* Mobile phones (<= 480px) */
+@media (max-width: 480px) {
+  .intro {
+    font-size: 1.6rem;
+  }
+
+  .intro .highlight {
+    font-size: 2.8rem;
+  }
+
+  .tagline {
+    font-size: 1.1rem;
+  }
+
+  .profile-pic {
+    width: 180px;
+    height: 180px;
+  }
+
+  .btn {
+    width: 100%; /* full-width buttons for easier tapping */
+    text-align: center;
+  }
 }
