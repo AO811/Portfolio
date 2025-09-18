@@ -238,7 +238,7 @@
 .btn {
   display: inline-flex;
   /* align-items: center; */
-  gap: 0.5rem;
+  gap: -0.5rem;
   padding: 0.7rem 1.3rem;
   font-size: 1rem;
   font-weight: 600;
