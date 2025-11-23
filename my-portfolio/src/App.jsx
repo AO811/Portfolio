@@ -4,9 +4,10 @@ import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Projects from "./pages/Projects";
+import Research from "./pages/Research";
 import Contact from "./pages/Contact";
 import Footer from "./components/Footer";
-import Loading from "./components/Loading"; // 👈 import loading screen
+import Loading from "./components/Loading"; 
 import "./App.css";
 
 function App() {
@@ -22,9 +23,10 @@ function App() {
   const homeRef = useRef(null);
   const aboutRef = useRef(null);
   const projectsRef = useRef(null);
+  const researchRef = useRef(null);
   const contactRef = useRef(null);
 
-  const sectionRefs = { homeRef, aboutRef, projectsRef, contactRef };
+  const sectionRefs = { homeRef, aboutRef, projectsRef, researchRef, contactRef };
 
   if (isLoading) {
     return <Loading />; // 👈 show loading screen
@@ -45,6 +47,10 @@ function App() {
 
         <section ref={projectsRef}>
           <Projects />
+        </section>
+
+        <section ref={researchRef}>
+          <Research />
         </section>
 
         <section ref={contactRef}>

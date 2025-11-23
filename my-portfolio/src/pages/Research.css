@@ -1,0 +1,327 @@
+/* ===========================
+   📚 Research Section Styling
+   =========================== */
+
+.research-section {
+  padding: 60px 10%;
+  background: #0d1117;/* slightly darker than about */
+  color: #e6edf3;
+}
+
+.research-container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Header */
+
+.research-header {
+  margin-bottom: 35px;
+}
+
+.research-title {
+  font-size: 3rem;
+  margin-bottom: 10px;
+  color: #58a6ff; /* same accent as About h2 */
+}
+
+.research-subtitle {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: #c9d1d9;
+  max-width: 700px;
+}
+
+/* Featured Label */
+
+.research-featured {
+  margin-bottom: 40px;
+}
+
+.research-label {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #f39c12;
+  margin-bottom: 10px;
+}
+
+/* Cards */
+
+.research-card {
+  background: #010409;
+  border-radius: 16px;
+  border: 1px solid #21262d;
+  padding: 20px 22px;
+  margin-bottom: 18px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.research-card--featured {
+  border: 2px solid #58a6ff;
+  box-shadow: 0 0 18px rgba(88, 166, 255, 0.35);
+}
+
+.research-card:hover {
+  transform: translateY(-4px);
+  border-color: #00ff6a;
+  box-shadow: 0 0 10px #00ff6a;
+}
+
+/* Card Header */
+
+.research-card-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: flex-start;
+  margin-bottom: 14px;
+}
+
+.research-card-heading {
+  flex: 1;
+}
+
+/* Text */
+
+.research-paper-title {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #f39c12;
+  margin-bottom: 6px;
+}
+
+.research-paper-meta {
+  font-size: 0.95rem;
+  color: #8b949e;
+  margin-bottom: 4px;
+}
+
+.research-paper-authors,
+.research-paper-location {
+  font-size: 0.9rem;
+  color: #9ca3af;
+}
+
+.research-abstract {
+  font-size: 0.98rem;
+  line-height: 1.6;
+  color: #c9d1d9;
+  margin: 10px 0 14px;
+}
+
+/* Status badge */
+
+.research-status-badge {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid #30363d;
+  white-space: nowrap;
+}
+
+/* Variants (you can add more later like 'under-review', 'preprint') */
+.research-status-presented {
+  border-color: #00ff6a;
+  color: #00ff6a;
+  background: rgba(0, 255, 106, 0.08);
+}
+
+/* Contributions */
+
+.research-contributions {
+  margin-top: 6px;
+  margin-bottom: 10px;
+}
+
+.research-contributions-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #f39c12;
+  margin-bottom: 6px;
+}
+
+.research-contributions-list {
+  list-style: disc;
+  padding-left: 20px;
+  margin: 0;
+}
+
+.research-contribution-item {
+  font-size: 0.95rem;
+  color: #c9d1d9;
+  margin-bottom: 4px;
+}
+
+/* Tags */
+
+.research-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 6px;
+}
+
+.research-tag {
+  font-size: 0.8rem;
+  padding: 5px 11px;
+  border-radius: 999px;
+  background: transparent;
+  border: 2px solid #9ca3af;
+  transition: all 0.3s ease;
+  color: #e6edf3;
+  cursor: default;
+}
+
+.research-tag:hover {
+    background: #0d1117;
+    border-color: #00ff6a;
+    color: #00ff6a;
+    box-shadow: 0 0 8px #00ff6a;
+}
+
+/* Links / Buttons */
+
+.research-links {
+  margin-top: 14px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.research-button {
+  font-size: 0.9rem;
+  padding: 7px 14px;
+  border-radius: 999px;
+  border: 2px solid #00ff6a;
+  background: #161b22;
+  color: #e6edf3;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.research-button:hover {
+   background: #0d1117;
+   border-color: #00ff6a;
+   color: #00ff6a;
+   box-shadow: 0 0 8px #00ff6a;
+}
+
+.research-button-primary {
+  font-size: 0.9rem;
+  padding: 7px 14px;
+  border-radius: 999px;
+  border: 2px solid #00ff6a;
+  background: #161b22;
+  color: #e6edf3;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.research-button-primary:hover {
+  border-color: #00ff6a;
+  color: #00ff6a;
+}
+
+/* List Section */
+
+.research-list-section {
+  margin-top: 20px;
+}
+
+.research-list-title {
+  font-size: 1.4rem;
+  margin-bottom: 14px;
+  color: #58a6ff;
+}
+
+.research-list {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ===========================
+   📱 Responsive Styles
+   =========================== */
+
+/* Tablets (<= 1024px) */
+@media (max-width: 1024px) {
+  .research-section {
+    padding: 50px 8%;
+  }
+
+  .research-title {
+    font-size: 2.5rem;
+  }
+}
+
+/* Tablets & small laptops (<= 768px) */
+@media (max-width: 768px) {
+  .research-section {
+    padding: 40px 6%;
+  }
+
+  .research-title {
+    font-size: 2.2rem;
+    text-align: center;
+  }
+
+  .research-subtitle {
+    text-align: center;
+    font-size: 1rem;
+  }
+
+  .research-card-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .research-status-badge {
+    align-self: flex-start;
+  }
+}
+
+/* Mobile phones (<= 480px) */
+@media (max-width: 480px) {
+  .research-section {
+    padding: 30px 5%;
+  }
+
+  .research-title {
+    font-size: 1.8rem;
+  }
+
+  .research-paper-title {
+    font-size: 1.1rem;
+  }
+
+  .research-paper-meta,
+  .research-paper-authors,
+  .research-paper-location {
+    font-size: 0.85rem;
+  }
+
+  .research-abstract {
+    font-size: 0.9rem;
+  }
+
+  .research-contribution-item {
+    font-size: 0.88rem;
+  }
+
+  .research-button {
+    font-size: 0.85rem;
+    padding: 6px 11px;
+  }
+
+  .research-tag {
+    font-size: 0.78rem;
+    padding: 4px 9px;
+  }
+}
